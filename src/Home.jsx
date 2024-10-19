@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import About from './components/About';
 
 const companies = [
@@ -10,27 +10,29 @@ const companies = [
 ];
 
 const Home = () => {
-  // Define x as the mapped company components with buttons
-  const x = companies.map((company, index) => (
+
+  const comp = companies.map((company, index) => (
     <div key={index} className="company-item flex flex-col items-center my-4">
       <img src={company.logoUrl} alt={`${company.name} logo`} className="company-logo mb-2 h-16 w-16 object-contain" />
-      <button className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-600 transition duration-300">
-        {company.name}
-      </button>
+      <div className="flex items-center space-x-2">
+        <input
+          type="checkbox"
+          checked={selectedCompanies.includes(company.name)}
+          onChange={() => handleCheckboxChange(company.name)}
+          className="form-checkbox h-5 w-5 text-blue-600"
+        />
+        <label className="text-lg">{company.name}</label>
+      </div>
     </div>
   ));
 
-  // Adjusted layout for the About and companies section
   return (
     <div className="min-h-screen flex flex-col items-center justify-center space-y-12 py-10">
-      {/* About section centered */}
       <div className="w-full flex justify-center">
         <About />
       </div>
-
-      {/* Company buttons in a responsive grid */}
       <div className="company-list grid grid-cols-1 md:grid-cols-3 gap-6">
-        {x}
+        {comp}
       </div>
     </div>
   );
