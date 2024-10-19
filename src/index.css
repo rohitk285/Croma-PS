@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .navmenu{
-  @apply block py-2 text-black font-semibold hover:text-blue-600;
-} */
+.navmenu{
+  @apply block py-2 text-black font-semibold hover:text-green-600;
+}

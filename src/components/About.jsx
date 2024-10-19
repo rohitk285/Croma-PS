@@ -6,10 +6,10 @@ const About = () => {
   return (
     <section className="bg-gradient-to-b from-gray-100 to-gray-400 min-h-screen">
       {/* Home Section */}
-      <div className="pt-24 md:pt-32 container mx-auto px-4 md:px-8 lg:px-24 flex flex-col-reverse lg:flex-row items-center justify-between">
+      <div className="pt-24 md:pt-32 container mx-auto px-4 md:px-8 lg:px-24 flex flex-col-reverse lg:flex-row-reverse items-center justify-between">
         <div className="w-full lg:w-1/2 mb-8 lg:mb-0 text-center lg:text-left">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-600 mb-4">
-           Chroma Intelligent Solutions
+           Croma Intelligent Solutions
           </h1>
           <h3 className="text-base md:text-lg text-gray-600 mb-6 mt-8">
           Our platform helps you gain competitive insights into India’s
@@ -21,12 +21,12 @@ const About = () => {
           </h3>
           <div className="flex flex-col sm:flex-row sm:space-x-4">
             <a
-              href="https://whatsapp.com/channel/0029Vaj7NoD3AzNNs0H8kg44"
-              className="w-full sm:w-auto px-6 py-2 md:px-8 md:py-3 bg-green-600 text-white rounded-lg shadow-lg hover:bg-gray-700 mb-2 sm:mb-0"
+              href=""
+              className="w-full sm:w-auto px-6 py-2 md:px-8 md:py-3 bg-green-700 text-white rounded-lg shadow-lg hover:bg-gray-700 mb-2 sm:mb-0"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Learn more about our project
+              Learn more about our solution
             </a>
           </div>
 

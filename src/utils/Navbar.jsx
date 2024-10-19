@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to='/' className="text-xl font-bold text-blue-600 flex items-center">
-          <img src={cromaLogo} alt="Kadal Logo" className="h-8 mr-2" />
+          <img src={cromaLogo} alt="Croma Logo" className="h-8 mr-2" />
         </Link>
 
         {/* Links for Desktop and Mobile */}
@@ -20,6 +20,20 @@ const Navbar = () => {
               
             >
               Home
+            </button>
+
+            <button
+              className={`navmenu transition duration-300 cursor-pointer`}
+              
+            >
+              Profile
+            </button>
+
+            <button
+              className={`navmenu transition duration-300 cursor-pointer`}
+              
+            >
+              Logout
             </button>
  
           </div>

@@ -40,53 +40,61 @@ const Home = ({ setSubmittedCompanies }) => {
 
   // Map over companies array to display existing company checkboxes
   const comp = companies.map((company, index) => (
-    <div key={index} className="company-item flex flex-col items-center my-4">
+    <div
+      key={index}
+      className="company-item flex flex-col items-center my-4 bg-white p-4 rounded-md shadow-md border border-gray-300 hover:bg-gray-50 transition cursor-pointer"
+      onClick={() => handleCheckboxChange(company.name)}  // Toggle checkbox when the company box is clicked
+    >
       <img src={company.logoUrl} alt={`${company.name} logo`} className="company-logo mb-2 h-16 w-16 object-contain" />
       <div className="flex items-center space-x-2">
         <input
           type="checkbox"
           checked={selectedCompanies.includes(company.name)}
           onChange={() => handleCheckboxChange(company.name)}
+          onClick={(e) => e.stopPropagation()}  // Prevent the click from bubbling up and double-toggling the checkbox
           className="form-checkbox h-5 w-5 text-blue-600"
         />
-        <label className="text-lg">{company.name}</label>
+        <label className="text-lg text-gray-700">{company.name}</label>
       </div>
     </div>
   ));
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center space-y-12 py-10">
+      {/* About Section */}
       <div className="w-full flex justify-center">
         <About />
       </div>
 
-      <div className="company-list grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Company List with Submit Button */}
+      <div className="company-list grid grid-cols-1 md:grid-cols-3 gap-6 bg-gray-200 p-6 rounded-lg shadow-lg w-3/4">
         {comp}
-        <div className="company-item flex flex-col items-center my-4">
+
+        {/* Add new company input */}
+        <div className="company-item flex flex-col items-center my-4 bg-white p-4 rounded-md shadow-md border border-gray-300 hover:bg-gray-50 transition">
           <input
             type="text"
             value={newCompany}
             onChange={(e) => setNewCompany(e.target.value)}
             placeholder="Add another company"
-            className="border border-gray-300 px-4 py-2 rounded-md mb-2"
+            className="border border-gray-300 px-4 py-2 rounded-md mb-2 w-full"
           />
           <button
             onClick={handleAddCompany}
-            className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition duration-300"
+            className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition duration-300 w-full"
           >
             Add Company
           </button>
         </div>
-      </div>
 
-      {/* Submit button */}
-      <div className="mt-6">
-        <button
-          onClick={handleSubmit}
-          className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition duration-300"
-        >
-          Submit
-        </button>
+        <div className="col-span-1 md:col-span-3 flex justify-center mt-6">
+          <button
+            onClick={handleSubmit}
+            className="bg-blue-500 font-bold text-white px-6 py-2 rounded-md hover:bg-blue-600 transition duration-300"
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );
