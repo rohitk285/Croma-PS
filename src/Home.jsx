@@ -10,6 +10,16 @@ const companies = [
 ];
 
 const Home = () => {
+  const [selectedCompanies, setSelectedCompanies] = useState([]);
+
+  // Handle checkbox change
+  const handleCheckboxChange = (company) => {
+    setSelectedCompanies((prevSelected) =>
+      prevSelected.includes(company)
+        ? prevSelected.filter((c) => c !== company) // Uncheck (remove from selection)
+        : [...prevSelected, company] // Check (add to selection)
+    );
+  };
 
   const comp = companies.map((company, index) => (
     <div key={index} className="company-item flex flex-col items-center my-4">
@@ -33,6 +43,14 @@ const Home = () => {
       </div>
       <div className="company-list grid grid-cols-1 md:grid-cols-3 gap-6">
         {comp}
+      </div>
+      <div className="mt-6">
+        <h2 className="text-xl font-bold">Selected Companies:</h2>
+        <ul>
+          {selectedCompanies.map((company, index) => (
+            <li key={index} className="text-lg">{company}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
