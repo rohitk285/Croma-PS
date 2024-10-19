@@ -20,10 +20,18 @@ const Home = () => {
     </div>
   ));
 
-  // Directly return the component {x}
+  // Adjusted layout for the About and companies section
   return (
-    <div className="company-list grid grid-cols-1 md:grid-cols-3 gap-6">
-      <About /> {/* About section comes before company buttons */}
+    <div className="min-h-screen flex flex-col items-center justify-center space-y-12 py-10">
+      {/* About section centered */}
+      <div className="w-full flex justify-center">
+        <About />
+      </div>
+
+      {/* Company buttons in a responsive grid */}
+      <div className="company-list grid grid-cols-1 md:grid-cols-3 gap-6">
+        {x}
+      </div>
     </div>
   );
 };
