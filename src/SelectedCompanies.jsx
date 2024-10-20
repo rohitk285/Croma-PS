@@ -38,8 +38,10 @@ const SelectedCompanies = ({ companies }) => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start py-10 space-y-8 translate-y-20">
-      
+    <div
+      className="min-h-screen flex flex-col items-center justify-start py-10 space-y-8 translate-y-20 bg-cover bg-center"
+      style={{ backgroundImage: "url('../assets/background2.jpg')" }}
+    >
       {/* Selected Companies Display */}
       <div className="w-full flex flex-col items-center">
         {companies.length > 0 ? (
@@ -76,7 +78,7 @@ const SelectedCompanies = ({ companies }) => {
         </div>
       )}
 
-      <button type="submit" className='bg-blue-600 hover:bg-blue-700 px-6 py-2 text-white rounded-lg font-bold'>
+      <button type="submit" className="bg-blue-600 hover:bg-blue-700 px-6 py-2 text-white rounded-lg font-bold">
         Submit
       </button>
     </div>

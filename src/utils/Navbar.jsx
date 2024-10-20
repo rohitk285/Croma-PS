@@ -5,7 +5,7 @@ import cromaLogo from '../../assets/croma.png'; // Import the logo
 const Navbar = () => {
 
   return (
-    <nav className="bg-white py-4 px-4 md:px-8 fixed shadow-sm w-full top-0 z-50">
+    <nav className="bg-gray-600 py-6 px-4 md:px-8 fixed shadow-sm w-full top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to='/' className="text-xl font-bold text-blue-600 flex items-center">
