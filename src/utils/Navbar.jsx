@@ -15,12 +15,12 @@ const Navbar = () => {
         {/* Links for Desktop and Mobile */}
         <div className={`md:flex md:items-center space-x-6`}>
           <div className={`flex flex-col md:flex-row items-center md:space-x-6`}>
-            <button
+            <Link to = "/"
               className={`navmenu transition duration-300 cursor-pointer`}
               
             >
               Home
-            </button>
+            </Link>
 
             <button
               className={`navmenu transition duration-300 cursor-pointer`}

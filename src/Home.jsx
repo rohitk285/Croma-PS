@@ -67,6 +67,7 @@ const Home = ({ setSubmittedCompanies }) => {
       </div>
 
       {/* Company List with Submit Button */}
+      <h2 className='text-center font-bold text-2xl'>Select Competitors to Analyze : </h2>
       <div className="company-list grid grid-cols-1 md:grid-cols-3 gap-6 bg-gray-200 p-6 rounded-lg shadow-lg w-3/4">
         {comp}
 

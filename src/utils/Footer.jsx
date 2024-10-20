@@ -8,13 +8,13 @@ const Footer = () => {
         {/* Left Side */}
         <div className="flex flex-col space-y-4 text-center md:text-left md:mr-10">
           <Link to="/" className="hover:text-gray-400">Home</Link>
-          <Link to="/about" className="hover:text-gray-400">About</Link>
         </div>
         
         {/* Second Column */}
         <div className="flex flex-col space-y-4 text-center md:text-left md:mr-10">
-          <Link to="/resources" className="hover:text-gray-400">Resources</Link>
-          <Link to="/contact" className="hover:text-gray-400">Contact</Link>
+        <Link to="/about" className="hover:text-gray-400">Profile</Link>
+          {/* <Link to="/resources" className="hover:text-gray-400">Logout</Link> */}
+          {/* <Link to="/contact" className="hover:text-gray-400">Contact</Link> */}
         </div>
       </div>
 

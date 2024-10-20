@@ -1,28 +1,39 @@
 import React, { useState } from 'react';
+import {
+  TruckIcon,
+  SpeakerphoneIcon,
+  GlobeAltIcon,
+  CubeTransparentIcon,
+  LocationMarkerIcon,
+  CurrencyDollarIcon,
+  ChatIcon,
+  SupportIcon,
+  ChartBarIcon,
+} from '@heroicons/react/outline'; // Import icons from Heroicons
 
 const aspects = [
-  'Supply Chain',
-  'Marketing Strategy',
-  'Media Presence',
-  'Product Portfolio',
-  'Geographical Presence',
-  'Financials',
-  'Customer Feedback',
-  'After Sales Services',
-  'Future Outlooks'
+  { name: 'Supply Chain', icon: <TruckIcon className="w-6 h-6 mr-2" /> },
+  { name: 'Marketing Strategy', icon: <SpeakerphoneIcon className="w-6 h-6 mr-2" /> },
+  { name: 'Media Presence', icon: <GlobeAltIcon className="w-6 h-6 mr-2" /> },
+  { name: 'Product Portfolio', icon: <CubeTransparentIcon className="w-6 h-6 mr-2" /> },
+  { name: 'Geographical Presence', icon: <LocationMarkerIcon className="w-6 h-6 mr-2" /> },
+  { name: 'Financials', icon: <CurrencyDollarIcon className="w-6 h-6 mr-2" /> },
+  { name: 'Customer Feedback', icon: <ChatIcon className="w-6 h-6 mr-2" /> },
+  { name: 'After Sales Services', icon: <SupportIcon className="w-6 h-6 mr-2" /> },
+  { name: 'Future Outlooks', icon: <ChartBarIcon className="w-6 h-6 mr-2" /> },
 ];
 
 const SelectedCompanies = ({ companies }) => {
   const [selectedAspects, setSelectedAspects] = useState([]);
 
   // Handle card selection, with a limit of 4
-  const handleAspectSelect = (aspect) => {
-    if (selectedAspects.includes(aspect)) {
+  const handleAspectSelect = (aspectName) => {
+    if (selectedAspects.includes(aspectName)) {
       // Deselect aspect if already selected
-      setSelectedAspects(selectedAspects.filter((item) => item !== aspect));
+      setSelectedAspects(selectedAspects.filter((item) => item !== aspectName));
     } else if (selectedAspects.length < 4) {
       // Add aspect if not already selected, and less than 4 selected
-      setSelectedAspects([...selectedAspects, aspect]);
+      setSelectedAspects([...selectedAspects, aspectName]);
     }
   };
 
@@ -46,12 +57,14 @@ const SelectedCompanies = ({ companies }) => {
           <div
             key={index}
             className={`aspect-card flex items-center justify-center p-6 text-center font-bold border-2 rounded-lg cursor-pointer transition-colors duration-300
-              ${selectedAspects.includes(aspect) ? 'bg-blue-100 border-blue-500 text-gray-800' : 'bg-gray-100 border-gray-300 text-gray-700'}
-              ${selectedAspects.length === 4 && !selectedAspects.includes(aspect) ? 'cursor-not-allowed opacity-50' : 'hover:bg-blue-50'}
+              ${selectedAspects.includes(aspect.name) ? 'bg-blue-100 border-blue-500 text-gray-800' : 'bg-gray-100 border-gray-300 text-gray-700'}
+              ${selectedAspects.length === 4 && !selectedAspects.includes(aspect.name) ? 'cursor-not-allowed opacity-50' : 'hover:bg-blue-50'}
             `}
-            onClick={() => handleAspectSelect(aspect)}
+            onClick={() => handleAspectSelect(aspect.name)}
           >
-            {aspect}
+            {/* Display icon before the aspect name */}
+            {aspect.icon}
+            {aspect.name}
           </div>
         ))}
       </div>
@@ -63,7 +76,9 @@ const SelectedCompanies = ({ companies }) => {
         </div>
       )}
 
-      <button type="submit" className='bg-blue-600 hover:bg-blue-700 px-6 py-2 text-white rounded-lg font-bold'>Submit</button>
+      <button type="submit" className='bg-blue-600 hover:bg-blue-700 px-6 py-2 text-white rounded-lg font-bold'>
+        Submit
+      </button>
     </div>
   );
 };
