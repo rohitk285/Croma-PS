@@ -29,31 +29,26 @@ const SelectedCompanies = ({ companies }) => {
   // Handle card selection, with a limit of 4
   const handleAspectSelect = (aspectName) => {
     if (selectedAspects.includes(aspectName)) {
-      // Deselect aspect if already selected
       setSelectedAspects(selectedAspects.filter((item) => item !== aspectName));
     } else if (selectedAspects.length < 4) {
-      // Add aspect if not already selected, and less than 4 selected
       setSelectedAspects([...selectedAspects, aspectName]);
     }
   };
 
   return (
-    <div
-      className="min-h-screen flex flex-col items-center justify-start py-10 space-y-8 translate-y-20 bg-cover bg-center"
-      style={{ backgroundImage: "url('../assets/background2.jpg')" }}
-    >
-      {/* Selected Companies Display */}
+    <div className="min-h-screen flex flex-col items-center justify-start py-10 space-y-8 translate-y-20 bg-cover bg-center">
       <div className="w-full flex flex-col items-center">
-        {companies.length > 0 ? (
-          <div className="text-lg font-bold mb-4">
-            Selected Companies are: {companies.join(', ')}.
-          </div>
-        ) : (
-          <div className="text-lg text-gray-500">No companies selected</div>
-        )}
+        <div className="w-full max-w-lg border-2 border-gray-300 rounded-lg p-4 mb-8 bg-white shadow-md">
+          {companies.length > 0 ? (
+            <div className="text-lg font-bold mb-4 text-center">
+              Selected Companies are: {companies.join(', ')}.
+            </div>
+          ) : (
+            <div className="text-lg text-gray-500">No companies selected</div>
+          )}
+        </div>
       </div>
-
-      {/* Cards for different aspects */}
+  
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl p-6">
         {aspects.map((aspect, index) => (
           <div
@@ -64,25 +59,24 @@ const SelectedCompanies = ({ companies }) => {
             `}
             onClick={() => handleAspectSelect(aspect.name)}
           >
-            {/* Display icon before the aspect name */}
             {aspect.icon}
             {aspect.name}
           </div>
         ))}
       </div>
-
-      {/* Selected Aspect Limit Warning */}
+  
       {selectedAspects.length === 4 && (
         <div className="text-red-500 text-sm">
           You can only select up to 4 aspects.
         </div>
       )}
-
+  
       <button type="submit" className="bg-blue-600 hover:bg-blue-700 px-6 py-2 text-white rounded-lg font-bold">
         Submit
       </button>
     </div>
   );
+  
 };
 
 export default SelectedCompanies;
